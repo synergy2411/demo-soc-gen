@@ -1,1 +1,35 @@
-<h1>User Component Loaded!!!</h1>
+<ng-content select="h1"></ng-content>
+
+<div class="container">
+    Parent Title Property : {{ title}}
+</div>
+
+<hr>
+<br>
+<div class="container">
+    <ul class="list-unstyled">
+        <li class="well">
+            <div class="row">
+                <div class="col-xs-2 col-sm-2 col-md-2">
+                    <img [src]="user.image" class="img-responsive img-circle">
+                    <button class="btn btn-info btn-sm" (click)="moreInfo(user)">
+                        More Info
+                    </button>
+                </div>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <h1> {{ user.firstName }} {{ user.lastName }}</h1>
+                    <p> Date of Birth :
+                        <span [innerHTML]="user.dob"></span>
+                    </p>
+                    <p> Income : {{ user.income }}</p>
+                    <em>Total Votes : {{ user.votes }}
+                        <!-- <input type="number" [value]="user.votes" (change)="user.votes = $event.target.value"> -->
+                        <input type="number" [(ngModel)]="user.votes">
+                    </em>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
+
+<ng-content select="footer"></ng-content>

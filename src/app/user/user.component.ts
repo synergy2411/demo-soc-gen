@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
     selector : 'app-user',
@@ -11,4 +11,16 @@ import { Component } from '@angular/core';
     // `]
     styleUrls : [`./user.component.css`]
 })
-export class UserComponent{}
+export class UserComponent {
+    @Input('title') title : string;
+    @Input('user') user : any;
+    moreInfo(user){
+        alert(`${user.firstName} is working with ${user.company}!!!`);
+    }
+    ngOnInit(){
+        console.log("ngOnInit");
+    }
+    ngOnChanges(){
+        console.log("ngOnChanges");
+    }
+}

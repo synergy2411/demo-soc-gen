@@ -1,4 +1,12 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <app-user></app-user>
+
+<div class="container">
+  <input type="text" [(ngModel)]="title">
+</div>
+
+<div>
+  <app-user [title]="title" [user] = "user">
+    <h1>Welcome to {{ title }} !!</h1>
+    <footer>Some Footer Info</footer>
+  </app-user>
 </div>
