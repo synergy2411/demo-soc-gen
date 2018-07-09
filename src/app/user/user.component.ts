@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
+import { User } from '../model/user';
 
 @Component({
     selector : 'app-user',
@@ -13,14 +14,22 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class UserComponent {
     @Input('title') title : string;
-    @Input('user') user : any;
-    moreInfo(user){
+    @Input('user') user : User;
+    
+    moreInfo(user : User){
         alert(`${user.firstName} is working with ${user.company}!!!`);
     }
     ngOnInit(){
         console.log("ngOnInit");
     }
-    ngOnChanges(){
-        console.log("ngOnChanges");
+    ngOnChanges(changes : SimpleChanges){
+        console.log("ngOnChanges", changes);
     }
+    constructor(){console.log("constructor")}
+    ngDoCheck(){console.log("ngDoCheck");}
+    ngAfterContentInit(){console.log("ngAfterContentInit");}
+    ngAfterContentChecked(){console.log("ngAfterContentChecked");}
+    ngAfterViewInit(){console.log("ngAfterViewInit");}
+    ngAfterViewChecked(){console.log("ngAfterViewChecked");}
+    ngOnDestroy(){console.log("ngOnDestroy");}
 }
