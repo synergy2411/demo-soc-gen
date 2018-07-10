@@ -9,6 +9,7 @@ import { UnlessDirective } from './directives/unless.directive';
 import { PipeDemoComponent } from './pipe-demo/pipe-demo.component';
 import { CountryCodePipe } from './pipes/countrycode.pipe';
 import { FilterPipe } from './pipes/filter.pipe';
+import { LoginComponent } from './auth/login/login.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { FilterPipe } from './pipes/filter.pipe';
     UnlessDirective,
     PipeDemoComponent,
     CountryCodePipe,
-    FilterPipe
+    FilterPipe,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -28,3 +30,7 @@ import { FilterPipe } from './pipes/filter.pipe';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+
+
+// ng g c auth/login --spec false
