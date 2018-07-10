@@ -12,7 +12,7 @@ export class FilterPipe implements PipeTransform {
     }
     let resultArray = [];
     for(let todo of value){
-      console.log(todo);
+      //console.log(todo);
       if(todo[status] == filteredStatus){
         resultArray.push(todo);
       }

@@ -27,17 +27,17 @@ export class UserComponent {
         this.myClasses.myText = true;
         this.myClasses.myBorder = false;
     }
-    ngOnInit(){
-        console.log("ngOnInit");
-    }
-    ngOnChanges(changes : SimpleChanges){
-        console.log("ngOnChanges", changes);
-    }
-    constructor(){console.log("constructor")}
-    ngDoCheck(){console.log("ngDoCheck");}
-    ngAfterContentInit(){console.log("ngAfterContentInit");}
-    ngAfterContentChecked(){console.log("ngAfterContentChecked");}
-    ngAfterViewInit(){console.log("ngAfterViewInit");}
-    ngAfterViewChecked(){console.log("ngAfterViewChecked");}
-    ngOnDestroy(){console.log("ngOnDestroy");}
+    // ngOnInit(){
+    //     console.log("ngOnInit");
+    // }
+    // ngOnChanges(changes : SimpleChanges){
+    //     console.log("ngOnChanges", changes);
+    // }
+    // constructor(){console.log("constructor")}
+    // ngDoCheck(){console.log("ngDoCheck");}
+    // ngAfterContentInit(){console.log("ngAfterContentInit");}
+    // ngAfterContentChecked(){console.log("ngAfterContentChecked");}
+    // ngAfterViewInit(){console.log("ngAfterViewInit");}
+    // ngAfterViewChecked(){console.log("ngAfterViewChecked");}
+    // ngOnDestroy(){console.log("ngOnDestroy");}
 }
