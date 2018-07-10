@@ -20,6 +20,7 @@ export class UserComponent {
         myBorder : true,
         myText : false
     }
+    myDefaultColor = 'darkgrey';
 
     moreInfo(user : User){
         alert(`${user.firstName} is working with ${user.company}!!!`);

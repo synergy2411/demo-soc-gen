@@ -1,5 +1,7 @@
 <ng-content select="h1"></ng-content>
 
+<!-- JSON Pipe : {{ users | json }} -->
+
 <div class="container">
     Parent Title Property : {{ title}}
 </div>
@@ -18,15 +20,19 @@
                     </button>
                 </div>
                 <div class="col-xs-8 col-sm-8 col-md-8">
-                    <h1 apphighlight> {{ user.firstName }} {{ user.lastName }}</h1>
+                    <h1 apphighlight [myColor]="'yellow'" [defaultColor]="myDefaultColor"> 
+                        {{ user.firstName | uppercase }} {{ user.lastName | uppercase}}</h1>
                     <p [ngClass]="myClasses"> Date of Birth :
-                        <span [innerHTML]="user.dob"></span>
+                        <span [innerHTML]="user.dob | date : 'MM/dd/yyyy'"></span>
                     </p>
                     <!-- <ng-template [ngIf]="user.isWorking">
                         <p>Income : {{ user.income }}</p>
                     </ng-template> -->
+                    <p *appUnless="!user.isWorking">
+                        AppUnless Works!
+                    </p>
                     <p *ngIf="user.isWorking; else ElseTemplate"> 
-                        Income : {{ user.income }}</p>
+                        Income : {{ user.income | currency : 'EUR'}}</p>
                     <em>Total Votes : {{ user.votes }}
                         <!-- <input type="number" [value]="user.votes" (change)="user.votes = $event.target.value"> -->
                         <input type="number" [(ngModel)]="user.votes">
