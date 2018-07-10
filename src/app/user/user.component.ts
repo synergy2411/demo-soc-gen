@@ -1,5 +1,6 @@
 import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
 import { User } from '../model/user';
+import { DataService } from '../services/data.service';
 
 @Component({
     selector : 'app-user',
@@ -10,7 +11,8 @@ import { User } from '../model/user';
     //         color : lightblue;
     //     }
     // `]
-    styleUrls : [`./user.component.css`]
+    styleUrls : [`./user.component.css`],
+    providers : [DataService]
 })
 export class UserComponent {
     @Input('title') title : string;
@@ -27,13 +29,19 @@ export class UserComponent {
         this.myClasses.myText = true;
         this.myClasses.myBorder = false;
     }
+
+
+  increase(){
+    this.dataService.counter++;
+  }
+
     // ngOnInit(){
     //     console.log("ngOnInit");
     // }
     // ngOnChanges(changes : SimpleChanges){
     //     console.log("ngOnChanges", changes);
     // }
-    // constructor(){console.log("constructor")}
+   constructor(public dataService : DataService){console.log("constructor")}
     // ngDoCheck(){console.log("ngDoCheck");}
     // ngAfterContentInit(){console.log("ngAfterContentInit");}
     // ngAfterContentChecked(){console.log("ngAfterContentChecked");}
