@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-register',
@@ -21,12 +22,14 @@ export class RegisterComponent implements OnInit {
 
   register(){
     console.log(this.registerForm);
+    this.authService.registerUser(this.registerForm.value.username,
+              this.registerForm.value.password);
   }
   hasExclamation(input : FormControl){
     const exclExist = input.value.indexOf('!')>=0;
     return exclExist ? null : { 'needExclamation' : true}
   }
-  constructor(private fb : FormBuilder) {
+  constructor(private fb : FormBuilder, private authService : AuthService) {
     this.registerForm = this.fb.group({
       username : this.username,
       password : this.password
