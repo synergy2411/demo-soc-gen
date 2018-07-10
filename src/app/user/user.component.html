@@ -8,8 +8,9 @@
 <br>
 <div class="container">
     <ul class="list-unstyled">
-        <li class="well">
+        <li class="well" *ngFor="let user of users; index as i;first as isFirst; even as isEven">
             <div class="row">
+                {{ i }} {{ isFirst }} {{ isEven }}
                 <div class="col-xs-2 col-sm-2 col-md-2">
                     <img [src]="user.image" class="img-responsive img-circle">
                     <button class="btn btn-info btn-sm" (click)="moreInfo(user)">
@@ -17,17 +18,24 @@
                     </button>
                 </div>
                 <div class="col-xs-8 col-sm-8 col-md-8">
-                    <h1> {{ user.firstName }} {{ user.lastName }}</h1>
-                    <p> Date of Birth :
+                    <h1 apphighlight> {{ user.firstName }} {{ user.lastName }}</h1>
+                    <p [ngClass]="myClasses"> Date of Birth :
                         <span [innerHTML]="user.dob"></span>
                     </p>
-                    <p> Income : {{ user.income }}</p>
+                    <!-- <ng-template [ngIf]="user.isWorking">
+                        <p>Income : {{ user.income }}</p>
+                    </ng-template> -->
+                    <p *ngIf="user.isWorking; else ElseTemplate"> 
+                        Income : {{ user.income }}</p>
                     <em>Total Votes : {{ user.votes }}
                         <!-- <input type="number" [value]="user.votes" (change)="user.votes = $event.target.value"> -->
                         <input type="number" [(ngModel)]="user.votes">
                     </em>
                 </div>
             </div>
+            <ng-template #ElseTemplate>
+                <p>{{ user.firstName }} is not Working now!</p>
+            </ng-template>
         </li>
     </ul>
 </div>

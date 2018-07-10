@@ -9,9 +9,9 @@ import { User } from './model/user';
 })
 export class AppComponent {
   title = 'app';
-  user : User;
+  users : User[];
 
   ngOnInit(){
-    this.user = USER_DATA;
+    this.users = USER_DATA;
   }
 }

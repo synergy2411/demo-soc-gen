@@ -14,10 +14,17 @@ import { User } from '../model/user';
 })
 export class UserComponent {
     @Input('title') title : string;
-    @Input('user') user : User;
+    @Input('users') users : User[];
     
+    myClasses = {
+        myBorder : true,
+        myText : false
+    }
+
     moreInfo(user : User){
         alert(`${user.firstName} is working with ${user.company}!!!`);
+        this.myClasses.myText = true;
+        this.myClasses.myBorder = false;
     }
     ngOnInit(){
         console.log("ngOnInit");
