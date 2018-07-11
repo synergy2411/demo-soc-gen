@@ -1,0 +1,11 @@
+https://github.com/synergy2411/demo-soc-gen
+
+npm install @angular/cli -g
+ng new <PROJECT_NAME>
+cd <PROJECT_NAME>
+ng serve [--port 3000]
+ng g d <DIRECTIVE_NAME>
+ng g c <COMPONENT_NAME>
+ng g s <SERVICE_NAME>
+ng g m <MODULE_NAME>
+ng g p <PIPE_NAME>	

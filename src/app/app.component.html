@@ -27,6 +27,14 @@
 </div>
 
 <br>
+<hr>
+<a [href]="dangerUrl">Danger URL</a>
+<a [href]="safeUrl">Safe URL</a>
+<br>
+<hr>
+Property Binding : <p [innerHTML]="htmlSnippets"></p>
+Interpolation : {{ htmlSnippets }}
+<br>
 <br>
 <h1> Counter in App : {{ dataService.counter }}</h1>
 <button class="btn btn-default" (click)="increase()">Increase </button>
