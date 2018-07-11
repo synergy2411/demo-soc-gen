@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { User } from './model/user';
 import { DataService } from './services/data.service';
 import * as firebase from 'firebase';
+import { AuthService } from './services/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -16,7 +17,8 @@ export class AppComponent {
   increase(){
     this.dataService.counter++;
   }
-  constructor(public dataService :DataService){}
+  constructor(public dataService :DataService,
+            public authService : AuthService){}
   ngOnInit(){
     //this.users = USER_DATA;
     
@@ -31,7 +33,7 @@ export class AppComponent {
       authDomain: "fir-soc-gen.firebaseapp.com"
     });
     
-    this.dataService.getApiData()
-      .subscribe(data=>this.users = data)
+    // this.dataService.getApiData()
+    //   .subscribe(data=>this.users = data)
   }
 }
