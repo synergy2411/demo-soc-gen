@@ -4,6 +4,7 @@ import { Http } from '@angular/http';
 import { HttpClient } from '@angular/common/http';
 import 'rxjs/add/operator/map';
 import { User } from '../model/user';
+import { AuthService } from './auth.service';
 
 @Injectable()
 export class DataService {
@@ -18,10 +19,11 @@ export class DataService {
     }
     getApiData(){
        return this.httpClient
-        .get<User[]>("https://fir-soc-gen.firebaseio.com/userdata.json");
+        .get<User[]>("https://fir-soc-gen.firebaseio.com/userdata.json?auth="+this.authService.getToken() );
     }
     constructor(private http : Http,
-                private httpClient : HttpClient){}
+                private httpClient : HttpClient,
+                private  authService : AuthService){}
 }
 
 // npm install --save firebase
